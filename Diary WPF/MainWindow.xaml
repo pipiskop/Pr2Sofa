@@ -1,0 +1,43 @@
+﻿<Window x:Class="Pr2Sofa.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pr2Sofa"
+        mc:Ignorable="d"
+        Icon="https://cdn-icons-png.flaticon.com/512/15/15628.png"
+        Title="Ежедневник" Height="362" Width="502" MinHeight="362" MinWidth="502" WindowStyle="ThreeDBorderWindow">
+    <Grid x:Name="MainGrid">
+        <Grid.Background>
+            <ImageBrush ImageSource="/images.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <DatePicker x:Name="DatePick" Grid.ColumnSpan="2" FirstDayOfWeek="Monday" SelectedDateChanged="DatePick_Changd" Margin="5,3,155,27" Grid.RowSpan="2"/>
+
+
+        <TextBlock Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Название" Margin="140,0,0,0"/>
+        <TextBox x:Name="NoteName" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1" Height="20" VerticalAlignment="Bottom" Margin="42,0,18,29" Grid.RowSpan="2"/>
+
+        <TextBlock Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Text="Описание"/>
+        <TextBox x:Name="NoteDesc" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="2" Height="25" VerticalAlignment="Top" Margin="41,15,18,0" Grid.RowSpan="2"/>
+
+        <ListBox x:Name="NotesLBX" Grid.Row="1" Grid.RowSpan="3" SelectionChanged="Notes_Change" Margin="5,40,5,10">
+        </ListBox>
+
+        <Button x:Name="DeleteBTN" Content="Удалить запись" Grid.Row="3"  VerticalAlignment="Top" Height="30" FontSize="9" Cursor="Hand" Click="DeleteBTN_Click" Grid.Column="1" Grid.ColumnSpan="2" Margin="84,43,84,0"/>
+        <Button x:Name="CreateBTN" Content="Создать" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="30" FontSize="9" Cursor="Hand" Click="Create_Click" Grid.ColumnSpan="2" Margin="84,126,84,0"/>
+    </Grid>
+</Window>
